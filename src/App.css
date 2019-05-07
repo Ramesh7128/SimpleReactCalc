@@ -1,33 +1,126 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet');
+* {
+  margin: 0;
+  padding: 0;
+  font-family: helvetica;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: #191919;
+  color: #ffffff;
 }
 
-.App-header {
-  background-color: #282c34;
+html, body {
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+}
+
+#body-wrapper {
   min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 100%;
+}
+
+.header-section {
+  display: flex;
+  margin: 15px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.logo-text {
+  font-family: 'Inconsolata', monospace;
+  font-size: 30px;
+  padding-left: 20px;
+}
+
+
+.content-section-wrapper {
+  display: grid;
+  border: 1px solid #ffffff;
+  width: 60vmin;
+  height: 50vmin;
+  grid-template-areas:
+    "result result result result"
+    "keys keys keys actions"
+    "keys keys keys actions"
+    "keys keys keys  actions"
+    "spkeys spkeys spkeys actions";
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.result-section {
+  grid-area: result;
+  border: 3px solid #ffffff;
+}
+
+.keys-section {
+  grid-area: keys;
+  /* border: 1px solid #ffffff; */
+}
+
+.action-section {
+  grid-area: actions;
   display: flex;
   flex-direction: column;
+}
+
+.action-section > div {
+  flex: 1;
+}
+
+.action-section-scientific {
+  grid-area: actions;
+  display: flex;
+  flex-direction: column;
+}
+
+.action-section-scientific > div {
+  flex: 1;
+}
+
+.specialkeys-section {
+  grid-area: spkeys;
+  display: flex;
+  flex-direction: row;
+}
+
+.specialkeys-section > div {
+  flex: 1;
+}
+
+.keys-section {
+  display: grid;
+  grid-template-columns: repeat(3,33.33%);
+  grid-template-rows: repeat(3,33.33%);
+}
+
+.key-item {
+  border: 1px solid #ffffff;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.functional-keys-wrapper {
+  display: flex;
+  padding: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.scientific-section {
+  border: 1px solid #ffffff;
+  padding: 10px;
 }
+
+.darkmode-section {
+  border: 1px solid #ffffff;
+  padding: 10px;
+}
+
+
+
+
