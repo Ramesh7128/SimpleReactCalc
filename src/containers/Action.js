@@ -9,29 +9,29 @@ class Action extends Component {
     render() {
         var classTag = this.props.scientificMode? 'action-section-scientific': 'action-section';
         return (
-            <div className={classTag} onClick={(event)=> console.log(event.target.dataset.action)}>
-                <div className='key-item'>
+            <div className={classTag} onClick={(event) => this.props.handleAction(event.target.dataset.action)}>
+                <div className='key-item' data-action='+'>
                     <label data-action='+'>Add(+)</label>
                 </div>
-                <div className='key-item'>
+                <div data-action='-' className='key-item'>
                     <label data-action='-'>Subract(-)</label>
                 </div>
-                <div className='key-item'>
+                <div data-action='*' className='key-item'>
                     <label data-action='*'>Multiply(*)</label>
                 </div>
-                <div className='key-item'>
+                <div data-action='/' className='key-item'>
                     <label data-action='/'>Divide(/)</label>
                 </div>
                 {this.props.scientificMode &&
                     <React.Fragment>
-                        <div className='key-item'>
-                            <label>-/+</label>
+                        <div data-action='-/+' className='key-item'>
+                            <label data-action='-/+'>-/+</label>
                         </div>
-                        <div className='key-item'>
-                            <label>^2</label>
+                        <div data-action='^2' className='key-item'>
+                            <label data-action='^2'>^2</label>
                         </div>
-                        <div className='key-item'>
-                            <label>sqrt</label>
+                        <div data-action='sqrt' className='key-item'>
+                            <label data-action='sqrt'>sqrt</label>
                         </div>
                     </React.Fragment>
                 }

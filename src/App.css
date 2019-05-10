@@ -23,6 +23,58 @@ html, body {
   grid-template-columns: 100%;
 }
 
+.dark-mode {
+  background-color: #191919;
+  color: #ffffff
+}
+
+.dark-mode .content-section-wrapper {
+  background-color: #666;
+  border: 1px solid #ffffff;
+}
+
+.dark-mode .result-section {
+  border: 3px solid #ffffff;
+}
+
+.dark-mode .key-item {
+  border: 1px solid #ffffff;
+}
+
+.dark-mode .scientific-section {
+  border: 1px solid #ffffff;
+}
+
+.dark-mode .darkmode-section {
+  border: 1px solid #ffffff;
+}
+
+.light-mode {
+  background-color: #ffffff;
+  color: #000000
+}
+
+.light-mode .content-section-wrapper {
+  background-color: #f0f0f0;
+  border: 1px solid #000000;
+}
+
+.light-mode .result-section {
+  border: 3px solid #000000;
+}
+
+.light-mode .key-item {
+  border: 1px solid #000000;
+}
+
+.light-mode .scientific-section {
+  border: 1px solid #000000;
+}
+
+.light-mode .darkmode-section {
+  border: 1px solid #000000;
+}
+
 .header-section {
   display: flex;
   margin: 15px;
@@ -40,7 +92,6 @@ html, body {
 
 .content-section-wrapper {
   display: grid;
-  border: 1px solid #ffffff;
   width: 60vmin;
   height: 50vmin;
   grid-template-areas:
@@ -51,10 +102,17 @@ html, body {
     "spkeys spkeys spkeys actions";
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  margin: 0 auto;
 }
 
 .result-section {
   grid-area: result;
+  font-size: 20px;
+  font-weight: 500;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 12px;
   border: 3px solid #ffffff;
 }
 
@@ -109,6 +167,7 @@ html, body {
 .functional-keys-wrapper {
   display: flex;
   padding: 20px;
+  justify-content: center;
 }
 
 .scientific-section {
