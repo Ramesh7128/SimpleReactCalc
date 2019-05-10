@@ -179,7 +179,7 @@ class Content extends Component {
         } else {
           this.setState({
             resultExpression: this.state.resultExpression,
-            computedValue: Number(this.state.resultExpression),
+            computedValue: String(this.state.resultExpression),
             actionableValue: "",
             operation: ""
           });
