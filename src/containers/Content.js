@@ -13,6 +13,7 @@ class Content extends Component {
       scientificMode: false,
       resultExpression: "",
       operation: "",
+      lastDigit: "",
       computedValue: "",
       actionableValue: ""
     };
@@ -29,56 +30,66 @@ class Content extends Component {
   }
 
   handleAction(clickValue) {
+    const scientificActions = ["-/+", "sqrt", "^2"];
     if (this.state.operation) {
-      let resultExpression = this.state.resultExpression.concat(clickValue);
-      let result = 0;
-      switch (this.state.operation) {
-        case "+":
-          result =
-            Number(this.state.computedValue) +
-            Number(this.state.actionableValue);
-          this.setState({
-            resultExpression: resultExpression,
-            computedValue: String(result),
-            actionableValue: "",
-            operation: clickValue
-          });
-          break;
-        case "-":
-          result =
-            Number(this.state.computedValue) -
-            Number(this.state.actionableValue);
-          this.setState({
-            resultExpression: resultExpression,
-            computedValue: String(result),
-            actionableValue: "",
-            operation: clickValue
-          });
-          break;
-        case "*":
-          result =
-            Number(this.state.computedValue) *
-            Number(this.state.actionableValue);
-          this.setState({
-            resultExpression: resultExpression,
-            computedValue: String(result),
-            actionableValue: "",
-            operation: clickValue
-          });
-          break;
-        case "/":
-          result =
-            Number(this.state.computedValue) /
-            Number(this.state.actionableValue);
-          this.setState({
-            resultExpression: resultExpression,
-            computedValue: String(result),
-            actionableValue: "",
-            operation: clickValue
-          });
-          break;
-        default:
-          break;
+      if (
+        this.state.lastDigit != "BasicAction" &&
+        !scientificActions.includes(clickValue)
+      ) {
+        let resultExpression = this.state.resultExpression.concat(clickValue);
+        let result = 0;
+        switch (this.state.operation) {
+          case "+":
+            result =
+              Number(this.state.computedValue) +
+              Number(this.state.actionableValue);
+            this.setState({
+              resultExpression: resultExpression,
+              computedValue: String(result),
+              actionableValue: "",
+              lastDigit: "BasicAction",
+              operation: clickValue
+            });
+            break;
+          case "-":
+            result =
+              Number(this.state.computedValue) -
+              Number(this.state.actionableValue);
+            this.setState({
+              resultExpression: resultExpression,
+              computedValue: String(result),
+              actionableValue: "",
+              lastDigit: "BasicAction",
+              operation: clickValue
+            });
+            break;
+          case "*":
+            result =
+              Number(this.state.computedValue) *
+              Number(this.state.actionableValue);
+            this.setState({
+              resultExpression: resultExpression,
+              computedValue: String(result),
+              actionableValue: "",
+              lastDigit: "BasicAction",
+              operation: clickValue
+            });
+            break;
+          case "/":
+            result =
+              Number(this.state.computedValue) /
+              Number(this.state.actionableValue);
+            this.setState({
+              resultExpression: resultExpression,
+              computedValue: String(result),
+              actionableValue: "",
+              lastDigit: "BasicAction",
+              operation: clickValue
+            });
+            break;
+          default:
+            break;
+        }
       }
     } else {
       let result = "";
@@ -117,7 +128,8 @@ class Content extends Component {
           let resultExpression = this.state.resultExpression.concat(clickValue);
           this.setState({
             resultExpression: resultExpression,
-            operation: clickValue
+            operation: clickValue,
+            lastDigit: "BasicAction"
           });
       }
     }
@@ -137,6 +149,7 @@ class Content extends Component {
                 resultExpression: String(result),
                 computedValue: String(result),
                 actionableValue: "",
+                lastDigit: "Equals",
                 operation: ""
               });
               break;
@@ -148,6 +161,7 @@ class Content extends Component {
                 resultExpression: String(result),
                 computedValue: String(result),
                 actionableValue: "",
+                lastDigit: "Equals",
                 operation: ""
               });
               break;
@@ -159,6 +173,7 @@ class Content extends Component {
                 resultExpression: String(result),
                 computedValue: String(result),
                 actionableValue: "",
+                lastDigit: "Equals",
                 operation: ""
               });
               break;
@@ -170,6 +185,7 @@ class Content extends Component {
                 resultExpression: String(result),
                 computedValue: String(result),
                 actionableValue: "",
+                lastDigit: "Equals",
                 operation: ""
               });
               break;
@@ -181,6 +197,7 @@ class Content extends Component {
             resultExpression: this.state.resultExpression,
             computedValue: String(this.state.resultExpression),
             actionableValue: "",
+            lastDigit: "Equals",
             operation: ""
           });
         }
@@ -190,20 +207,22 @@ class Content extends Component {
           resultExpression: "",
           computedValue: "",
           actionableValue: "",
+          lastDigit: "clear",
           operation: ""
         });
         break;
       default:
-        console.log("Check if it goes here");
         if (this.state.operation) {
           this.setState(prevState => ({
             actionableValue: prevState.actionableValue.concat(clickValue),
-            resultExpression: prevState.resultExpression.concat(clickValue)
+            resultExpression: prevState.resultExpression.concat(clickValue),
+            lastDigit: "Number"
           }));
         } else {
           this.setState(prevState => ({
             computedValue: prevState.computedValue.concat(clickValue),
-            resultExpression: prevState.resultExpression.concat(clickValue)
+            resultExpression: prevState.resultExpression.concat(clickValue),
+            lastDigit: "Number"
           }));
         }
     }
