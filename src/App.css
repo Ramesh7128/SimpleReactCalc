@@ -89,6 +89,12 @@ html, body {
   padding-left: 20px;
 }
 
+.content-section {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
 
 .content-section-wrapper {
   display: grid;
@@ -102,7 +108,7 @@ html, body {
     "spkeys spkeys spkeys actions";
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-  margin: 0 auto;
+  /* margin: 0 auto; */
 }
 
 .result-section {
@@ -118,7 +124,6 @@ html, body {
 
 .keys-section {
   grid-area: keys;
-  /* border: 1px solid #ffffff; */
 }
 
 .action-section {
@@ -166,7 +171,6 @@ html, body {
 
 .functional-keys-wrapper {
   display: flex;
-  padding: 20px;
   justify-content: center;
 }
 
