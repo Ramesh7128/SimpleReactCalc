@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Result from "./Result";
-import KeyBoard from "./KeyBoard";
 import ScientificMode from "./ScientificMode";
 import DarkMode from "./DarkMode";
 import Keys from "./Keys";
@@ -12,7 +11,7 @@ class Content extends Component {
     super(props);
     this.state = {
       scientificMode: false,
-      resultExpression: "0",
+      resultExpression: "",
       operation: "",
       computedValue: "",
       actionableValue: ""
@@ -30,7 +29,6 @@ class Content extends Component {
   }
 
   handleAction(clickValue) {
-    console.log("handle this expression.", clickValue);
     if (this.state.operation) {
       let resultExpression = this.state.resultExpression.concat(clickValue);
       let result = 0;
@@ -126,7 +124,6 @@ class Content extends Component {
   }
 
   handleNumberInputs(clickValue) {
-    console.log(clickValue);
     let result = 0;
     switch (clickValue) {
       case "=":
@@ -190,7 +187,7 @@ class Content extends Component {
         break;
       case "clear":
         this.setState({
-          resultExpression: "0",
+          resultExpression: "",
           computedValue: "",
           actionableValue: "",
           operation: ""
