@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import Result from "./Result";
-import ScientificMode from "./ScientificMode";
-import DarkMode from "./DarkMode";
-import Keys from "./Keys";
-import Action from "./Action";
-import SpKeys from "./SpKeys";
+import Result from "../components/Result";
+import ScientificMode from "../components/ScientificMode";
+import DarkMode from "../components/DarkMode";
+import Keys from "../components/Keys";
+import Action from "../components/Action";
+import SpKeys from "../components/SpKeys";
 
 class Content extends Component {
   constructor(props) {
@@ -23,7 +23,6 @@ class Content extends Component {
   }
 
   handleScientificMode() {
-    console.log(this.state.scientificMode);
     this.setState(prevState => ({
       scientificMode: !prevState.scientificMode
     }));
