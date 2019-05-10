@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## SimpleReactCalc
 
- SimpleReactCalc is a simple calculator built using reactJS.
+ SimpleReactCalc is a calculator built using reactJS.
 
 ### `npm start`
 
