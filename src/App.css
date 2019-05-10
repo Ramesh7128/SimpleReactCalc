@@ -169,6 +169,11 @@ html, body {
   justify-content: center;
 }
 
+.key-item:hover {
+  background: #000000;
+  color: #ffffff;
+}
+
 .functional-keys-wrapper {
   display: flex;
   justify-content: center;
